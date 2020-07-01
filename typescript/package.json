@@ -6,11 +6,12 @@
   "types": "dist/index.d.ts",
   "scripts": {
     "test": "mocha -r ts-node/register tests/**/*.test.ts",
-    "generate": "mkdir -p dist/generated && yarn codegen:coin && yarn codegen:js && yarn codegen:ts",
+    "generate": "yarn codegen:coin && yarn codegen:js && yarn codegen:ts",
     "codegen:coin": "codegen/bin/codegen",
-    "codegen:js": "pbjs -t static-module ../src/proto/Ethereum.proto --no-delimited --force-long -o dist/generated/core_proto.js",
-    "codegen:ts": "pbts -o dist/generated/core_proto.d.ts dist/generated/core_proto.js",
-    "build": "rm -rf dist && yarn generate && tsc --skipLibCheck",
+    "codegen:js": "pbjs -t static-module ../src/proto/Ethereum.proto --no-delimited --force-long -o src/generated/core_proto.js",
+    "codegen:ts": "pbts -o src/generated/core_proto.d.ts src/generated/core_proto.js",
+    "clean": "rm -rf dist src/generated && mkdir -p dist/generated src/generated",
+    "build": "yarn clean && yarn generate && cp src/generated/core_proto.* dist/generated && tsc --skipLibCheck",
     "publish": "yarn publish"
   },
   "repository": {
