@@ -24,7 +24,7 @@ jobs:
       working-directory: typescript
     - run: yarn test
       working-directory: typescript
-    - name: publish
+    - name: Publish
       run: |
         echo "//npm.pkg.github.com/:_authToken=${TOKEN}" >> .npmrc
         npm publish --verbose

@@ -15,10 +15,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/trustwallet/wallet-core.git"
-  },
-  "publishConfig": {
-    "registry": "https://npm.pkg.github.com/"
+    "url": "git://github.com/trustwallet/wallet-core.git"
   },
   "author": "",
   "license": "MIT",
